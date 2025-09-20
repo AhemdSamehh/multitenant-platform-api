@@ -1,0 +1,60 @@
+@WebApi_HostAddress = http://localhost:5009
+
+GET {{WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+# Test Tenant Creation
+POST {{WebApi_HostAddress}}/api/tenants/add
+Content-Type: application/json
+tenant: root
+
+{
+  "identifier": "test-tenant-2",
+  "name": "Test Tenant 2",
+  "isActive": true,
+  "connectionString": "Server=DESKTOP-CEEFFEU\\SQLEXPRESS; Database=TestTenant2Db; Trusted_Connection = true; Encrypt=False; MultipleActiveResultSets=True;",
+  "email": "admin@testtenant2.com",
+  "firstName": "Test",
+  "lastName": "Admin",
+  "validUpTo": "2025-12-31T23:59:59Z"
+}
+
+###
+
+# Test Tenant Creation - Another Tenant
+POST {{WebApi_HostAddress}}/api/tenants/add
+Content-Type: application/json
+tenant: root
+
+{
+  "identifier": "test-tenant-3",
+  "name": "Test Tenant 3",
+  "isActive": true,
+  "connectionString": "Server=DESKTOP-CEEFFEU\\SQLEXPRESS; Database=TestTenant3Db; Trusted_Connection = true; Encrypt=False; MultipleActiveResultSets=True;",
+  "email": "admin@testtenant3.com",
+  "firstName": "Test",
+  "lastName": "Admin",
+  "validUpTo": "2025-12-31T23:59:59Z"
+}
+
+###
+
+# Test Duplicate Tenant Creation (Should Fail)
+POST {{WebApi_HostAddress}}/api/tenants/add
+Content-Type: application/json
+tenant: root
+
+{
+  "identifier": "test-tenant-2",
+  "name": "Duplicate Tenant",
+  "isActive": true,
+  "connectionString": "Server=DESKTOP-CEEFFEU\\SQLEXPRESS; Database=DuplicateDb; Trusted_Connection = true; Encrypt=False; MultipleActiveResultSets=True;",
+  "email": "duplicate@test.com",
+  "firstName": "Duplicate",
+  "lastName": "User",
+  "validUpTo": "2025-12-31T23:59:59Z"
+}
+
+###
