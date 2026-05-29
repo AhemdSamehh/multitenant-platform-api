@@ -1,4 +1,4 @@
-name: CI-CD - Build and Push to Docker Hub
+name: CI-CD - Build and Push API to Docker Hub
 
 on:
   push:
@@ -18,8 +18,7 @@ permissions:
 
 env:
   DOCKERHUB_USERNAME: ahmedsameho
-  API_IMAGE_NAME: shopsphere-api
-  CLIENT_IMAGE_NAME: shopsphere-client
+  API_IMAGE_NAME: abcschool-api
   IMAGE_TAG: ${{ github.sha }}
 
 jobs:
@@ -30,11 +29,10 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Show repository files
+      - name: Show Dockerfiles
         run: |
           pwd
           ls -la
-          echo "Dockerfiles:"
           find . -maxdepth 5 -name "Dockerfile"
 
       - name: Login to Docker Hub
@@ -43,3 +41,16 @@ jobs:
         with:
           username: ${{ env.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build API image
+        run: |
+          docker build \
+            -t $DOCKERHUB_USERNAME/$API_IMAGE_NAME:$IMAGE_TAG \
+            -t $DOCKERHUB_USERNAME/$API_IMAGE_NAME:latest \
+            -f WebApi/Dockerfile .
+
+      - name: Push API image
+        if: github.event_name != 'pull_request'
+        run: |
+          docker push $DOCKERHUB_USERNAME/$API_IMAGE_NAME:$IMAGE_TAG
+          docker push $DOCKERHUB_USERNAME/$API_IMAGE_NAME:latest
