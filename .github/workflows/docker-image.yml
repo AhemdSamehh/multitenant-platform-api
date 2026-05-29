@@ -3,12 +3,14 @@ name: CI-CD - Build and Push to Docker Hub
 on:
   push:
     branches:
-      - master
       - main
+      - master
+
   pull_request:
     branches:
-      - master
       - main
+      - master
+
   workflow_dispatch:
 
 permissions:
