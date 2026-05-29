@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11819.183 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7895BF84-A7EC-4593-913E-52567210C21C}"
 EndProject
@@ -14,6 +14,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{60B5ED11-A43D-430C-9E81-D2F6B21E0BC7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{75FC75E0-94E7-4D2C-841D-E2D56806AE46}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{641EE0E5-D17B-4133-8E6E-2F969E6427F4}"
+	ProjectSection(SolutionItems) = preProject
+		ci-cd.ecr.yml = ci-cd.ecr.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +44,10 @@ Global
 		{75FC75E0-94E7-4D2C-841D-E2D56806AE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75FC75E0-94E7-4D2C-841D-E2D56806AE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75FC75E0-94E7-4D2C-841D-E2D56806AE46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +58,9 @@ Global
 		{75F7840B-D3B3-4549-8CCD-ABD83BFDE374} = {7D28573B-4DE7-41BD-83C6-7371D817162A}
 		{60B5ED11-A43D-430C-9E81-D2F6B21E0BC7} = {7895BF84-A7EC-4593-913E-52567210C21C}
 		{75FC75E0-94E7-4D2C-841D-E2D56806AE46} = {7D28573B-4DE7-41BD-83C6-7371D817162A}
+		{641EE0E5-D17B-4133-8E6E-2F969E6427F4} = {7895BF84-A7EC-4593-913E-52567210C21C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15B5D834-7B14-42AE-A2D6-928F1E1DD6F6}
 	EndGlobalSection
 EndGlobal
