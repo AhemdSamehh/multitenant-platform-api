@@ -8,7 +8,6 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 COPY ["NuGet.config", "./"]
-COPY ["LocalPackages/", "LocalPackages/"]
 
 COPY ["WebApi/WebApi.csproj", "WebApi/"]
 COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
